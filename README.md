@@ -1,3 +1,4 @@
+[Hacker News](https://recruit-one.vercel.app/)
 
 ## Запуск проекта:
 
@@ -24,6 +25,7 @@ npm run start
 - SCSS Modules
 - React Query V4
 - npm
+
 
 
 
