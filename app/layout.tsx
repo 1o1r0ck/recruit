@@ -1,8 +1,8 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import { QueryProvider } from "./QueryProvider";
-import Header from "./header";
+import { QueryProvider } from "../lib/QueryProvider";
+import Header from "./components/header";
 const inter = Inter({ subsets: ["latin"] });
 import Head from "./head";
 

@@ -8,42 +8,37 @@ import Link from "next/link";
 import { FullNews } from "../../types/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useQuery } from "react-query";
-import useNewsInfo from "@/app/lib/useNewsInfo";
-const Api = "https://hacker-news.firebaseio.com/v0";
-import { useLatestNews } from "../../lib/useLatestNews";
+
 import NewsItem from "@/app/components/newsItem";
+import { useNews } from "@/hooks/useNews";
+import NewsApi from "../../../api/news";
 
-// import { useRouter } from 'next/router';
 
-// const fetchStory = async (id: number) => {
-//   return fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(
-//     (res) => res.json()
-//   );
-// };
+
 
 export default function FullNews() {
-  // const searchParams = useSearchParams();
-  // const idSearch = searchParams.get("id");
 
-  // const { data: story } = useQuery(
-  //   ["story", idSearch],
-  //   () => fetchStory(Number(idSearch)),
-  //   {
-  //     enabled: !!idSearch,
-  //   }
-  // );
 
-  // if (!story) {
-  //   return <div>Loading...</div>;
+  // const { data, isLoading } = NewsApi.getById()
+  // if (isLoading) {
+  //   return <div className={styles.loading}>Загрузка данных...</div>;
   // }
 
-  // const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const itemId = searchParams.get('id');
 
   return (
     <div className={styles.wrapper}>
-      <Link href="/">
+
+    {data.map((news: any) => (
+          <NewsItem
+            key={news.id}
+            title={news.title}
+            by={news.by}
+            id={news.id}
+            time={news.time}
+            score={news.score}
+          />
+        ))}
+      {/* <Link href="/">
         <div className={styles.back}>
           <Image
             className={styles.backImg}
@@ -73,7 +68,7 @@ export default function FullNews() {
         <div className={styles.commentsCnt}>
           Commentaries: <span> 12 </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

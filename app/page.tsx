@@ -3,11 +3,11 @@
 import "../app/scss/normalize.scss";
 import { NewsCard } from "./components/newsCard";
 import { News } from "./types/types";
-import { useLatestNews } from "./lib/useLatestNews";
+import { useNews } from "@/hooks/useNews";
 import styles from "./scss/main.module.scss";
 
 export default function Home() {
-  const { data, isLoading } = useLatestNews(100);
+  const { data, isLoading } = useNews()
   if (isLoading) {
     return <div className={styles.loading}>Загрузка данных...</div>;
   }
