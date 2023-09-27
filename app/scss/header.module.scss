@@ -1,0 +1,20 @@
+@import "variables.scss";
+
+:not(.classname) header {
+  width: $container-width;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $orange;
+  margin-bottom: 30px;
+  .headerInfo {
+    display: flex;
+    align-items: center;
+    .headerTitle {
+      margin-left: 15px;
+    }
+  }
+  .refresh {
+  }
+}
